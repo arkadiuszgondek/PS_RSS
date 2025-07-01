@@ -55,12 +55,12 @@ def generate_rss(items):
         if art["pub_date"] < now - timedelta(days=7):
             continue
 
-        fe = fg.add_entry()
-        fe.title(art["title"])
-        fe.link(href=art["link"])
-        fe.description(f"<img src='{art['image']}'/><br/>{art['desc']}")
-                fe.guid(art["guid"], permalink=False)
-        fe.pubDate(art["pub_date"].strftime('%a, %d %b %Y %H:%M:%S +0000'))
+fe = fg.add_entry()
+fe.title(art["title"])
+fe.link(href=art["link"])
+fe.description(f"<img src='{art['image']}'/><br/>{art['desc']}")
+fe.guid(art["guid"], permalink=False)
+fe.pubDate(art["pub_date"].strftime('%a, %d %b %Y %H:%M:%S +0000'))
 
     return fg.rss_str(pretty=True)
 
