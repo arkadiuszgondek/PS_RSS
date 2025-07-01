@@ -2,6 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 from feedgen.feed import FeedGenerator
 from datetime import datetime, timedelta
+import time
+import os
 
 BASE_URL = "https://przegladsportowy.onet.pl"
 FEED_URL = f"{BASE_URL}/koszykowka.feed"
