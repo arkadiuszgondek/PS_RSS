@@ -1,0 +1,32 @@
+name: Generate RSS Daily
+
+on:
+  schedule:
+    - cron: '0 5 * * *'  # codziennie o 5:00 UTC
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Generate RSS
+        run: python rss_builder.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add docs/rss.xml
+          git commit -m "Auto update RSS [$(date)]" || echo "No changes to commit"
+          git push
