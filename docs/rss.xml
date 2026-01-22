@@ -6,6 +6,6 @@
     <description>Artykuły z kategorii koszykówka z ostatnich 7 dni</description>
     <docs>http://www.rssboard.org/rss-specification</docs>
     <generator>python-feedgen</generator>
-    <lastBuildDate>Wed, 21 Jan 2026 05:35:15 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 22 Jan 2026 05:35:20 +0000</lastBuildDate>
   </channel>
 </rss>
